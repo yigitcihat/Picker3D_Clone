@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using _Picker3D_.Scripts.Data;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -8,7 +9,7 @@ namespace _Picker3D_.Scripts.Controllers
     [System.Serializable]
     public class PartCustomizations
     {
-        [SerializeField] private Collecteable objectType;
+        [SerializeField] private Collectable objectType;
 
         [FormerlySerializedAs("Position")]
         [LabelText("Position")]

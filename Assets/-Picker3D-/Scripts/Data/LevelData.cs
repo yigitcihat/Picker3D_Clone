@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using _Picker3D_.Scripts.Controllers;
  using Sirenix.OdinInspector;
-using Sirenix.OdinInspector.Demos.RPGEditor;
 using UnityEngine;
 
 namespace _Picker3D_.Scripts.Data
