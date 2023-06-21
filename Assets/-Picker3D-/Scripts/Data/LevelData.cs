@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using _Picker3D_.Scripts.Controllers;
  using Sirenix.OdinInspector;
+using UnityEditor;
 using UnityEngine;
 
 namespace _Picker3D_.Scripts.Data
@@ -10,43 +10,36 @@ namespace _Picker3D_.Scripts.Data
     [ShowOdinSerializedPropertiesInInspector]
     public class LevelData : ScriptableObject
     {
-        public int containerSuccessSize;
-        
+        [SerializeField] internal GameObject partPlatform;
+        [SerializeField] internal Color groundColor, borderColor, pickerColor, containerColor;
+        [SerializeField]
+        [SerializeReference]
         [ListDrawerSettings(Expanded = true)]
-        public List<PartCustomizations> part = new List<PartCustomizations>();
-
+        internal List<PartCustomizations> partGroup = new List<PartCustomizations>();
         
-    //     [BoxGroup("Parts")]
-    // [HorizontalGroup("Split", 290), EnumToggleButtons, HideLabel]
-    // public PartCustomizations Part;
-
-    // [TableMatrix(HorizontalTitle = "Column", VerticalTitle = "Row")]
-    // public ObjectType[,] ObjectGroupDesign = new ObjectType[8, 50];
-
-    // [HorizontalGroup("Split", 55, LabelWidth = 70)]
-    // [HideLabel, PreviewField(55, ObjectFieldAlignment.Left)]
-    // public Texture Icon;
-    //
-    // [VerticalGroup("Split/Meta")]
-    // public string Name;
-    //
-    // [VerticalGroup("Split/Meta")]
-    // public string Surname;
-    //
-    // [VerticalGroup("Split/Meta"), Range(0, 100)]
-    // public int Age;
-    //
-    // [HorizontalGroup("Split", 290), EnumToggleButtons, HideLabel]
-    // public CharacterAlignment CharacterAlignment;
-   
-    
-    // [TabGroup("Starting Stats"), HideLabel]
-    // public CharacterStats Skills = new CharacterStats();
-    //
-    // [HideLabel]
-    // [TabGroup("Starting Equipment")]
-    // public List<CharacterEquipment> StartingEquipment;
-
-
     }
+    // public enum LevelType { Default, Tutorial }
+    //
+    // [System.Serializable]
+    // public class Level
+    // {
+    //     public Level(LevelData _levelData)
+    //     {
+    //         levelData = _levelData;
+    //     }
+    //
+    //     [BoxGroup("LevelType")]
+    //     [ListDrawerSettings(AlwaysAddDefaultValue = true)]
+    //     public List<LevelType> LevelTypes = new List<LevelType>();
+    //
+    //     [ValueDropdown("LevelNames")]
+    //     public string LoadLevelID;
+    //
+    //
+    //
+    //     private LevelData levelData;
+    //     
+    //
+    // }
+
 }

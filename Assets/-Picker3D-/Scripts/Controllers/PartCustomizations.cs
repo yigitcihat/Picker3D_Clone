@@ -1,45 +1,23 @@
-﻿using _Picker3D_.Scripts.Data;
+﻿using System.Collections.Generic;
+using _Picker3D_.Scripts.Controllers;
+using _Picker3D_.Scripts.Data;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace _Picker3D_.Scripts.Controllers
+namespace _Picker3D_.Scripts
 {
     
     [System.Serializable]
     public class PartCustomizations
     {
+        public int containerSuccessSize;
         [SerializeField] private Collectable objectType;
-
-        [FormerlySerializedAs("Position")]
-        [LabelText("Position")]
-        [HorizontalGroup("Split", 500), EnumToggleButtons, HideLabel]
-        public PositionType position;
-
-      
-        [ShowInInspector]
-        [LabelText("ObjectGroupDesign")]
-        [TableMatrix(HorizontalTitle = "Column", VerticalTitle = "Row", ResizableColumns = false)]
-        private bool[,] _objectGroup= new bool[5, 5];
-
+        [SerializeField]
+        [ListDrawerSettings(Expanded = true)]
+        public List<Part> partGroup = new List<Part>();
         
     }
 
-    public enum PositionType
-    {
-        None,
-        Left,
-        Center,
-        Right
-    } 
-    public enum ObjectType
-    { 
-        None,
-        Square,
-        Ball,
-        Pyramit,
-        Torus
-        
-    }
+   
     
 }

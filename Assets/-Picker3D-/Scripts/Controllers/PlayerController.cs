@@ -32,8 +32,8 @@ namespace _Picker3D_.Scripts.Controllers
 
         private void FixedUpdate()
         {
-            //     if(GameManager.Instance.isGameStarted)
-            MoveForward();
+            if(GameManager.Instance.isGameStarted)
+                MoveForward();
         }
 
         // private void OnTriggerEnter(Collider other)
@@ -101,3 +101,4 @@ namespace _Picker3D_.Scripts.Controllers
         #endregion
     }
 }
+

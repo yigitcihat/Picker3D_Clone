@@ -39,7 +39,6 @@ namespace _Picker3D_.Scripts.Managers
 
                 if (!(Mathf.Abs(distance) > DistanceThreshold)) return;
                 var calculatedValue = (distance / Screen.width) * Smoothness ;
-                Debug.Log(calculatedValue);
 
                 // Slide
                 PlayerController.Instance.Slide(calculatedValue);
