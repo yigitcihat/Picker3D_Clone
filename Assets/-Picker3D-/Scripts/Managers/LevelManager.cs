@@ -42,16 +42,24 @@ namespace _Picker3D_.Scripts.Managers
             base.Awake();
             for (var i = 0; i <= LevelIndex+1; i++)
             {
-                var currentPos = new Vector3(0, 0, _currentPlatformPos);
-                Instantiate(levels[i].partPlatform.gameObject,
-                    currentPos, Quaternion.identity).transform.parent = transform;
-                _currentPlatformPos += platformLength;
+                for (var j = 0; j < levels[i].PartGroup.Count; j++)
+                {
+                    var currentPos = new Vector3(0, 0, _currentPlatformPos);
+                    Instantiate(levels[i].partPlatform.gameObject, currentPos, Quaternion.identity).transform.parent = transform;
+                    _currentPlatformPos += platformLength;
+                    SetPartObjects(levels[i], i);
+                    levels[i].partGroup[i].InstantiateObjects();
+                }
+              
+              
+              
             }
+            
         }
 
         private void SetPartObjects(LevelData levelData, int levelIndex )
         {
-            for (var i = 0; i < levelData.partGroup.Count; i++)
+            for (var i = 0; i < levelData.PartGroup.Count; i++)
             {
                 
             }

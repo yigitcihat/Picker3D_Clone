@@ -31,15 +31,20 @@ MonoBehaviour:
         objectType: {fileID: 7601172272236221403, guid: 8a7c2eb149fbcd04fab1e8b4956af754,
           type: 3}
         partGroup:
-        - id: 3
-        - id: 4
-        - id: 5
+        - levelData: {fileID: 11400000}
+          filePath: C:/Users/user/AppData/LocalLow/DefaultCompany/Picker3D/CustomCellDrawing_96f76c62-5a50-4f2f-9e45-cc649a54da80.json
+          id: 96f76c62-5a50-4f2f-9e45-cc649a54da80
+        - levelData: {fileID: 11400000}
+          filePath: C:/Users/user/AppData/LocalLow/DefaultCompany/Picker3D/CustomCellDrawing_68939ac1-f307-4559-a34c-18273a4d352e.json
+          id: 68939ac1-f307-4559-a34c-18273a4d352e
+        - levelData: {fileID: 11400000}
+          filePath: C:/Users/user/AppData/LocalLow/DefaultCompany/Picker3D/CustomCellDrawing_547a15f0-6a31-4b26-ac98-2772544c1460.json
+          id: 547a15f0-6a31-4b26-ac98-2772544c1460
     00000001:
       type: {class: PartCustomizations, ns: _Picker3D_.Scripts, asm: Assembly-CSharp}
       data:
-        containerSuccessSize: 15
-        objectType: {fileID: 7601172272236221403, guid: 8a7c2eb149fbcd04fab1e8b4956af754,
-          type: 3}
+        containerSuccessSize: 0
+        objectType: {fileID: 0}
         partGroup: []
     00000002:
       type: {class: PartCustomizations, ns: _Picker3D_.Scripts, asm: Assembly-CSharp}
@@ -48,9 +53,3 @@ MonoBehaviour:
         objectType: {fileID: 7601172272236221403, guid: 8a7c2eb149fbcd04fab1e8b4956af754,
           type: 3}
         partGroup: []
-    00000003:
-      type: {class: Part, ns: _Picker3D_.Scripts.Controllers, asm: Assembly-CSharp}
-    00000004:
-      type: {class: Part, ns: _Picker3D_.Scripts.Controllers, asm: Assembly-CSharp}
-    00000005:
-      type: {class: Part, ns: _Picker3D_.Scripts.Controllers, asm: Assembly-CSharp}

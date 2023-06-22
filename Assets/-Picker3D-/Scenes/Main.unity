@@ -215,6 +215,79 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 112692037}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &115639861
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 115639862}
+  - component: {fileID: 115639863}
+  m_Layer: 0
+  m_Name: PoolingSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &115639862
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115639861}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1566292331}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &115639863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115639861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84f17d04de9bc3e479b111ce389953a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SourceObjects:
+  - PoolObject: {fileID: 0}
+    SourcePrefab: {fileID: 7524914999902361666, guid: 8c43dc12b23a64849a1359df5dd99d21,
+      type: 3}
+    MinNumberOfObject: 0
+    AllowGrow: 1
+    AutoDestroy: 1
+    clones: []
+  - PoolObject: {fileID: 0}
+    SourcePrefab: {fileID: 1294490592432642556, guid: 0cdf9d257994351409236119ba45aaa4,
+      type: 3}
+    MinNumberOfObject: 0
+    AllowGrow: 1
+    AutoDestroy: 1
+    clones: []
+  - PoolObject: {fileID: 0}
+    SourcePrefab: {fileID: 4187918985708433259, guid: 8a7c2eb149fbcd04fab1e8b4956af754,
+      type: 3}
+    MinNumberOfObject: 0
+    AllowGrow: 1
+    AutoDestroy: 1
+    clones: []
+  - PoolObject: {fileID: 0}
+    SourcePrefab: {fileID: 5535015999122041418, guid: fd57bf0d475872a42a1cafaabcaa3b84,
+      type: 3}
+    MinNumberOfObject: 0
+    AllowGrow: 1
+    AutoDestroy: 1
+    clones: []
+  DefaultCount: 10
 --- !u!1 &163551483
 GameObject:
   m_ObjectHideFlags: 0
@@ -1547,17 +1620,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 915d420563460ba44bfa412e45064823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platformLength: 60
   levels:
   - {fileID: 11400000, guid: 76f34208e2daef645a12c76c0edaaba9, type: 2}
-  - {fileID: 11400000, guid: bbf796eb06a7ba244822e06f19c38f71, type: 2}
-  - {fileID: 11400000, guid: 6a0dfdf0dc3a8ad43b4e112f8419ae27, type: 2}
-  - {fileID: 11400000, guid: d59dc535a0a16ba42b273a5a9ac98868, type: 2}
-  - {fileID: 11400000, guid: f1cd33b52f0946e4d9be3035d8e45f31, type: 2}
-  - {fileID: 11400000, guid: 16c6bc1d90f7bba47b91ec942a6ae3b0, type: 2}
-  - {fileID: 11400000, guid: f53dbbdbbc6404a48947240f70c8a18c, type: 2}
-  - {fileID: 11400000, guid: cf66e1b8a1de72a40a35b1246eb6e273, type: 2}
-  - {fileID: 11400000, guid: 76eeb3b1a14efbd46a0bfc0bf96c895d, type: 2}
-  - {fileID: 11400000, guid: 8e74a401aeb3cc940aefd574fb59993e, type: 2}
+  - {fileID: 11400000, guid: 76f34208e2daef645a12c76c0edaaba9, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   onLevelStart:
     m_PersistentCalls:
       m_Calls: []
@@ -3144,6 +3218,7 @@ Transform:
   - {fileID: 1411480967}
   - {fileID: 1660522383}
   - {fileID: 756303563}
+  - {fileID: 115639862}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
