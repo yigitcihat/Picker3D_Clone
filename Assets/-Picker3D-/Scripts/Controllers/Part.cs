@@ -46,7 +46,7 @@ namespace _Picker3D_.Scripts
                 GUI.changed = true;
                 Event.current.Use();
 
-                UnityEditor.Undo.RecordObject(levelData, "Change Cell Value");
+                // UnityEditor.Undo.RecordObject(levelData, "Change Cell Value");
                 UnityEditor.EditorUtility.SetDirty(levelData);
                 UnityEditor.AssetDatabase.SaveAssets();
                 Save(filePath);

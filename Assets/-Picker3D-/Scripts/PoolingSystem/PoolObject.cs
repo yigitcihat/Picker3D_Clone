@@ -18,8 +18,11 @@ public class PoolObject : MonoBehaviour
 
     private IEnumerator Start()
     {
-        yield return new WaitForSeconds(0.5f);
-        // Rb.isKinematic = false;
+        Rb.velocity=Vector3.zero;
+        Rb.mass=1000;
+        yield return new WaitForSeconds(0.2f);
+        Rb.velocity=Vector3.zero;
+        Rb.mass=1;
         // transform.SetParent(PoolingSystem.Instance.transform);
     }
     

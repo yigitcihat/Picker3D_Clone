@@ -28,7 +28,7 @@ MonoBehaviour:
       type: {class: PartCustomizations, ns: _Picker3D_.Scripts, asm: Assembly-CSharp}
       data:
         containerSuccessSize: 10
-        objectType: {fileID: 7601172272236221403, guid: 8a7c2eb149fbcd04fab1e8b4956af754,
+        objectType: {fileID: 7895946966520457753, guid: 0cdf9d257994351409236119ba45aaa4,
           type: 3}
         partGroup:
         - levelData: {fileID: 11400000}

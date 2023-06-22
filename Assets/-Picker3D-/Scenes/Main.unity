@@ -259,29 +259,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SourceObjects:
-  - PoolObject: {fileID: 0}
-    SourcePrefab: {fileID: 7524914999902361666, guid: 8c43dc12b23a64849a1359df5dd99d21,
+  - SourcePrefab: {fileID: 7524914999902361666, guid: 8c43dc12b23a64849a1359df5dd99d21,
       type: 3}
     MinNumberOfObject: 0
     AllowGrow: 1
     AutoDestroy: 1
     clones: []
-  - PoolObject: {fileID: 0}
-    SourcePrefab: {fileID: 1294490592432642556, guid: 0cdf9d257994351409236119ba45aaa4,
+  - SourcePrefab: {fileID: 1294490592432642556, guid: 0cdf9d257994351409236119ba45aaa4,
       type: 3}
     MinNumberOfObject: 0
     AllowGrow: 1
     AutoDestroy: 1
     clones: []
-  - PoolObject: {fileID: 0}
-    SourcePrefab: {fileID: 4187918985708433259, guid: 8a7c2eb149fbcd04fab1e8b4956af754,
+  - SourcePrefab: {fileID: 4187918985708433259, guid: 8a7c2eb149fbcd04fab1e8b4956af754,
       type: 3}
     MinNumberOfObject: 0
     AllowGrow: 1
     AutoDestroy: 1
     clones: []
-  - PoolObject: {fileID: 0}
-    SourcePrefab: {fileID: 5535015999122041418, guid: fd57bf0d475872a42a1cafaabcaa3b84,
+  - SourcePrefab: {fileID: 5535015999122041418, guid: fd57bf0d475872a42a1cafaabcaa3b84,
       type: 3}
     MinNumberOfObject: 0
     AllowGrow: 1
