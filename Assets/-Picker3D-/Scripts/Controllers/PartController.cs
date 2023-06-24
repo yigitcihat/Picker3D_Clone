@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using _Picker3D_.Scripts.Managers;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace _Picker3D_.Scripts
@@ -14,7 +12,7 @@ namespace _Picker3D_.Scripts
 
         [SerializeField] private Transform containerPart;
         [SerializeField] internal GameObject finalLine;
-
+        [SerializeField] internal GameObject Success_Fx;
         internal Container container;
         private float _containerPartInitPosY;
         
@@ -41,6 +39,15 @@ namespace _Picker3D_.Scripts
                 wall.material.color = containerWallColor;
             }
 
+        } 
+        internal void PlayFX()
+        {
+            foreach (var fx in Success_Fx.GetComponentsInChildren<ParticleSystem>())
+            {
+                Debug.Log("asdasd");
+                fx.Play();
+            }
         }
+
     }
 }

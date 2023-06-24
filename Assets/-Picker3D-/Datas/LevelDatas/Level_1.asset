@@ -30,7 +30,7 @@ MonoBehaviour:
         - levelData: {fileID: 11400000}
           filePath: C:/Users/user/AppData/LocalLow/DefaultCompany/Picker3D/CustomCellDrawing_1cfa3f4c-3dfd-4df6-a1ac-5c994ccacddd.json
           id: 1cfa3f4c-3dfd-4df6-a1ac-5c994ccacddd
-          ObjectType: 3
+          ObjectType: 0
         - levelData: {fileID: 11400000}
           filePath: C:/Users/user/AppData/LocalLow/DefaultCompany/Picker3D/CustomCellDrawing_c492be9e-be21-45ec-a0d6-780def79af17.json
           id: c492be9e-be21-45ec-a0d6-780def79af17
@@ -38,4 +38,4 @@ MonoBehaviour:
         - levelData: {fileID: 11400000}
           filePath: C:/Users/user/AppData/LocalLow/DefaultCompany/Picker3D/CustomCellDrawing_5d73d848-3bb4-4f88-8ec3-caac7ba0751a.json
           id: 5d73d848-3bb4-4f88-8ec3-caac7ba0751a
-          ObjectType: 3
+          ObjectType: 2

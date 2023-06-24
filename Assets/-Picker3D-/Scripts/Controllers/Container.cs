@@ -21,7 +21,7 @@ namespace _Picker3D_.Scripts
 
         // [SerializeField] private FXData _objectsParticleData;
         [SerializeField] internal int requireObjectCount;
-
+        [SerializeField] private Transform particules;
         private List<Collectable> _objectsInContainer;
 
         private List<Collectable> ObjectsInContainer =>
@@ -93,20 +93,22 @@ namespace _Picker3D_.Scripts
                 var t = ObjectsInContainer[index];
                 yield return new WaitForSeconds(.05f);
                 var currentObject = t.gameObject;
-                // _objectsParticleData.myFxPool.GetObjFromPool(currentObject.transform.position);
                 PoolingSystem.Instance.DestroyAPS(currentObject);
             }
 
             containerPart.DOLocalMoveY(1.77f, 1.5f).SetEase(Ease.InOutBack).OnComplete(() =>
             {
+                partController.PlayFX();
                 OpenBarrier();
                 platformPartMaterial.material.DOColor(partController.partGround.material.color, 1f);
                 EventManager.OnPartSuccess.Invoke();
+                
             });
         }
 
         private void OpenBarrier()
         {
+           
             for (var i = 0; i < barrierParts.Length; i++)
                 barrierParts[i].DOLocalRotate(barrierParts[i].transform.forward * (-60 * (-i == 0 ? 1 : -1)), 1f)
                     .OnComplete(() =>
@@ -118,6 +120,7 @@ namespace _Picker3D_.Scripts
                     });
         }
 
+       
         #endregion
     }
 }

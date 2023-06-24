@@ -40,7 +40,7 @@ namespace _Picker3D_.Scripts.Managers
 
         public void Start()
         {
-            for (var i = 0; i <= Level + 1; i++)
+            for (var i = Level; i <= Level + 1; i++)
             {
                 LoadLevel(i);
             }
@@ -48,7 +48,6 @@ namespace _Picker3D_.Scripts.Managers
 
         public void LoadLevel(int level)
         {
-            Debug.Log(levels[level].name);
             for (var j = 0; j < levels[level].partGroupCustomization.partGroup.Count; j++)
             {
                 var t = levels[level].partGroupCustomization.partGroup[j];
@@ -60,7 +59,7 @@ namespace _Picker3D_.Scripts.Managers
                     levels[level].containerColor,
                     levels[level].containerGroundColor);
                 _currentPlatformPos += platformLength;
-                levels[level].partGroupCustomization.InstantiateObjects();
+                
                 partController.container.requireObjectCount =
                     t.ContainerSuccessSize;
                 if (j + 1 == levels[level].partGroupCustomization.partGroup.Count)
@@ -68,7 +67,7 @@ namespace _Picker3D_.Scripts.Managers
                     partController.finalLine.SetActive(true);
                 }
             }
-
+            levels[level].partGroupCustomization.InstantiateObjects();
 
             _currentLevelData = levels[Level];
             _nextLevelData = levels[Level + 1];

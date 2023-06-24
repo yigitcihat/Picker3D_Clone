@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partPlatform: {fileID: 6797433268519842982, guid: 9969aa04e8266ed43a6defc788a872ed,
     type: 3}
-  groundColor: {r: 0.990566, g: 0.39716092, b: 0.39716092, a: 1}
+  groundColor: {r: 1, g: 0.3726415, b: 0.3726415, a: 1}
   borderColor: {r: 0.9264529, g: 0.40792987, b: 0.9716981, a: 1}
   pickerColor: {r: 0.6374999, g: 1, b: 0.4009434, a: 1}
   containerColor: {r: 0.5000268, g: 0.30081883, b: 0.9811321, a: 1}
@@ -30,7 +30,7 @@ MonoBehaviour:
         - levelData: {fileID: 11400000}
           filePath: C:/Users/user/AppData/LocalLow/DefaultCompany/Picker3D/CustomCellDrawing_626f6b14-3ddb-49c0-bfb5-5924a799ab6d.json
           id: 626f6b14-3ddb-49c0-bfb5-5924a799ab6d
-          ObjectType: 1
+          ObjectType: 3
         - levelData: {fileID: 11400000}
           filePath: C:/Users/user/AppData/LocalLow/DefaultCompany/Picker3D/CustomCellDrawing_883b2db2-5d5c-43f6-ac10-175d9a7ecfa9.json
           id: 883b2db2-5d5c-43f6-ac10-175d9a7ecfa9
