@@ -1,26 +1,32 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using _Picker3D_.Scripts.Managers;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace _Picker3D_.Scripts
 {
-    public class PartController : MonoBehaviour
+    public class PartController : Singleton<PartController>
     {
         [SerializeField] internal Renderer rightWall, leftWall, partGround, containerGround;
 
         [SerializeField] private List<Renderer> containerWalls = new List<Renderer>();
 
         [SerializeField] private Transform containerPart;
-        [SerializeField] internal Container container;
-        private float _containerPartInitPosY;
+        [SerializeField] internal GameObject finalLine;
 
-        private void Start()
+        internal Container container;
+        private float _containerPartInitPosY;
+        
+        public override void Awake()
         {
+            container = GetComponentInChildren<Container>();
             var transform1 = containerPart.transform;
             var localPosition = transform1.localPosition;
             _containerPartInitPosY = localPosition.y;
             localPosition -= new Vector3(0, 2, 0);
             transform1.localPosition = localPosition;
-            container = GetComponentInChildren<Container>();
+           
         }
 
         internal void SetPartConfig(Color partWallColor, Color partGroundColor, Color containerWallColor,

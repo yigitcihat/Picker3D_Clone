@@ -39,7 +39,16 @@ namespace _Picker3D_.Scripts.Controllers
             if(GameManager.Instance.isGameStarted)
                 MoveForward();
         }
-
+        private void OnTriggerEnter(Collider other)
+        {
+            var containerTrigger = other.GetComponent<ContainerTrigger>();
+            if (containerTrigger == null) return;
+            SetWaitingState(PlayerStates.PlayerState.Waiting);
+            var container = other.GetComponentInParent<Container>();
+            canMove = CollectDetector.Instance.CheckHaveEnoughObjects(container.GetRequireObjectCount());
+            StartCoroutine(CheckPlayerState());
+            Destroy(other.gameObject);
+        }
         #endregion
 
         #region Other Methods
@@ -69,22 +78,13 @@ namespace _Picker3D_.Scripts.Controllers
             _myState = state;
             UpdatePlayerState();
         }
-        private void OnTriggerEnter(Collider other)
-        {
-            var containerTrigger = other.GetComponent<ContainerTrigger>();
-            if (containerTrigger == null) return;
-            SetWaitingState(PlayerStates.PlayerState.Waiting);
-            var container = other.GetComponentInParent<Container>();
-            canMove = CollectDetector.Instance.CheckHaveEnoughObjects(container.GetRequireObjectCount());
-            StartCoroutine(CheckPlayerState());
-            Destroy(other.gameObject);
-        }
+       
         
         private IEnumerator CheckPlayerState()
         {
             yield return new WaitForSeconds(4f);
-            // if (!canMove) 
-            // // EventManager.OnGameOver.Invoke();
+            if (!canMove) 
+               GameManager.Instance.OnGameFail.Invoke();
         }
 
         private void MoveForward()

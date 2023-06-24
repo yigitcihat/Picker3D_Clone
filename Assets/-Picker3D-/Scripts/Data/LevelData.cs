@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Threading;
-using _Picker3D_.Scripts.Controllers;
+﻿using _Picker3D_.Scripts.Managers;
 using Sirenix.OdinInspector;
-using UnityEditor;
 using UnityEngine;
 
 namespace _Picker3D_.Scripts.Data
@@ -21,7 +18,7 @@ namespace _Picker3D_.Scripts.Data
 
         private void OnEnable()
         {
-            partGroupCustomization.ForwardStartPosLimit = 15;
+            GameManager.Instance.ForwardStartPosLimit = 15;
             foreach (var part in partGroupCustomization.partGroup)
             {
                 part.levelData = this;

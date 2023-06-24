@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partPlatform: {fileID: 6797433268519842982, guid: 9969aa04e8266ed43a6defc788a872ed,
     type: 3}
-  groundColor: {r: 0, g: 0, b: 0, a: 1}
-  borderColor: {r: 1, g: 1, b: 1, a: 1}
-  pickerColor: {r: 1, g: 0.62352943, b: 0, a: 1}
-  containerColor: {r: 0, g: 1, b: 0.060247898, a: 1}
-  containerGroundColor: {r: 0.13679248, g: 1, b: 0.9233439, a: 1}
+  groundColor: {r: 0.38042897, g: 0.965527, b: 0.9716981, a: 1}
+  borderColor: {r: 0.8396226, g: 0.8396226, b: 0.8396226, a: 1}
+  pickerColor: {r: 0.9811321, g: 0.6381695, b: 0.19900322, a: 1}
+  containerColor: {r: 1, g: 0.77925897, b: 0.23113209, a: 1}
+  containerGroundColor: {r: 1, g: 0.3820755, b: 0.66513485, a: 1}
   partGroupCustomization:
     id: 0
   references:
@@ -28,11 +28,14 @@ MonoBehaviour:
       data:
         partGroup:
         - levelData: {fileID: 11400000}
-          filePath: C:/Users/user/AppData/LocalLow/DefaultCompany/Picker3D/CustomCellDrawing_2c9a2bd6-6d3c-45e1-9275-413fd29367a8.json
-          id: 2c9a2bd6-6d3c-45e1-9275-413fd29367a8
+          filePath: C:/Users/user/AppData/LocalLow/DefaultCompany/Picker3D/CustomCellDrawing_1cfa3f4c-3dfd-4df6-a1ac-5c994ccacddd.json
+          id: 1cfa3f4c-3dfd-4df6-a1ac-5c994ccacddd
+          ObjectType: 0
         - levelData: {fileID: 11400000}
-          filePath: C:/Users/user/AppData/LocalLow/DefaultCompany/Picker3D/CustomCellDrawing_88d7df04-9f62-4516-b59c-0424976f43c4.json
-          id: 88d7df04-9f62-4516-b59c-0424976f43c4
+          filePath: C:/Users/user/AppData/LocalLow/DefaultCompany/Picker3D/CustomCellDrawing_c492be9e-be21-45ec-a0d6-780def79af17.json
+          id: c492be9e-be21-45ec-a0d6-780def79af17
+          ObjectType: 2
         - levelData: {fileID: 11400000}
-          filePath: C:/Users/user/AppData/LocalLow/DefaultCompany/Picker3D/CustomCellDrawing_d32ddab3-9085-4f06-b0ce-6522ae8dd721.json
-          id: d32ddab3-9085-4f06-b0ce-6522ae8dd721
+          filePath: C:/Users/user/AppData/LocalLow/DefaultCompany/Picker3D/CustomCellDrawing_5d73d848-3bb4-4f88-8ec3-caac7ba0751a.json
+          id: 5d73d848-3bb4-4f88-8ec3-caac7ba0751a
+          ObjectType: 3

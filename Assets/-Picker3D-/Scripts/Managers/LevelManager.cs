@@ -45,11 +45,12 @@ namespace _Picker3D_.Scripts.Managers
             {
                 foreach (var t in levels[i].partGroupCustomization.partGroup)
                 {
+                    Debug.Log(levels[i].name);
                     var currentPos = new Vector3(0, 0, _currentPlatformPos);
                     var part = Instantiate(levels[i].partPlatform.gameObject, currentPos, Quaternion.identity);
                     part.transform.SetParent(transform, true);
                     var partController = part.GetComponent<PartController>();
-                    partController.SetPartConfig(levels[i].groundColor, levels[i].borderColor, levels[i].containerColor,
+                    partController.SetPartConfig(levels[i].borderColor, levels[i].groundColor, levels[i].containerColor,
                         levels[i].containerGroundColor);
                     _currentPlatformPos += platformLength;
                     levels[i].partGroupCustomization.InstantiateObjects();
@@ -64,9 +65,9 @@ namespace _Picker3D_.Scripts.Managers
         }
 
 
-        public Material GetLevelMaterial()
+        public Color GetLevelColor()
         {
-            return _currentLevelData.partPlatform.GetComponent<PartController>().partGround.material;
+            return _currentLevelData.partPlatform.GetComponent<PartController>().partGround.sharedMaterial.color;
         }
     }
 }

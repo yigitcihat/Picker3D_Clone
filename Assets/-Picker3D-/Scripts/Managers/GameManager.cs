@@ -10,18 +10,18 @@ namespace _Picker3D_.Scripts.Managers
         [HideInInspector]
         public UnityEvent OnGameStart = new UnityEvent();
         [HideInInspector]
-        public UnityEvent OnGameEnd = new UnityEvent();
+        public UnityEvent OnGameFail = new UnityEvent();
         [HideInInspector]
         public UnityEvent OnStageSuccess = new UnityEvent();
         [HideInInspector]
         public UnityEvent OnStageFail = new UnityEvent();
-        private bool isStageCompleted;
+
         [ReadOnly]
         [ShowInInspector]
-        public bool IsStageCompleted { get { return isStageCompleted; } set { isStageCompleted = value; } }
+        public bool IsStageCompleted { get; set; }
 
         [ShowInInspector] public bool isGameStarted;
-
+        [HideInInspector]internal float ForwardStartPosLimit = 15;
         public void StartGame()
         {
             if (isGameStarted)
@@ -37,7 +37,7 @@ namespace _Picker3D_.Scripts.Managers
             if (!isGameStarted)
                 return;
             isGameStarted = false;
-            OnGameEnd.Invoke();
+            OnGameFail.Invoke();
         }
 
         /// <summary>

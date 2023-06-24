@@ -12,20 +12,22 @@ namespace _Picker3D_.Scripts
         [HideInInspector] public LevelData levelData;
         [HideInInspector] public string filePath;
         [HideInInspector] public string id;
-        [ShowInInspector] internal Collectable ObjectType;
+        [ShowInInspector] [EnumPaging] public CollectableTypes ObjectType;
         [ShowInInspector] private int containerSuccessSize;
+
         public int ContainerSuccessSize
         {
             get => containerSuccessSize;
             set => containerSuccessSize = value;
         }
-        [TableMatrix(HorizontalTitle = "Custom Cell Drawing", DrawElementMethod = "DrawColoredEnumElement",
+
+        [TableMatrix(HorizontalTitle = "PartCellDrawing", DrawElementMethod = "DrawColoredEnumElement",
             ResizableColumns = true, RowHeight = 20)]
         public bool[,] PartCellDrawing = new bool[50, 16];
-        
+
 
         [ShowInInspector, DoNotDrawAsReference]
-        [TableMatrix(HorizontalTitle = "Transposed Custom Cell Drawing", DrawElementMethod = "DrawColoredEnumElement",
+        [TableMatrix(HorizontalTitle = "Transposed", DrawElementMethod = "DrawColoredEnumElement",
             ResizableColumns = false, RowHeight = 20, Transpose = true)]
         public bool[,] Transposed
         {
@@ -40,8 +42,10 @@ namespace _Picker3D_.Scripts
 
         internal void OnLoad()
         {
+
             Initialize();
             Load(filePath);
+
         }
 
 #if UNITY_EDITOR
@@ -85,8 +89,8 @@ namespace _Picker3D_.Scripts
 
             var json = JsonUtility.ToJson(partData);
             File.Delete(path);
+            
             File.WriteAllText(path, json);
-        
         }
 
         public void Load(string path)
@@ -114,20 +118,29 @@ namespace _Picker3D_.Scripts
         [System.Serializable]
         internal class PartData
         {
-            public Collectable ObjectType;
+            public CollectableTypes ObjectType;
             public int ContainerSuccessSize;
             public bool[] CellData;
         }
+
         private void Initialize()
         {
             filePath = Application.persistentDataPath + "/CustomCellDrawing_" + id + ".json";
         }
-    }
 
-    [System.Serializable]
-    public class SerializationHelper<T>
-    {
-        public T[] data;
+
+        public enum CollectableTypes
+        {
+            Dice,
+            Hamburger,
+            Pokeball,
+            UnicornFloat
+        }
+
+        [System.Serializable]
+        public class SerializationHelper<T>
+        {
+            public T[] data;
+        }
     }
-    
 }
