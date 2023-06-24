@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using _Picker3D_.Scripts.Controllers;
 using _Picker3D_.Scripts.Data;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -7,21 +8,22 @@ using UnityEngine.Serialization;
 
 namespace _Picker3D_.Scripts.Managers
 {
-    public class LevelManager  : Singleton<LevelManager>
+    public class LevelManager : Singleton<LevelManager>
     {
         [SerializeField] private float platformLength = 60;
+        [SerializeField] private PlayerController playerController;
         private float _currentPlatformPos;
-        
-        [FormerlySerializedAs("LevelData")]
-        [BoxGroup("Level Data")]
-        [SerializeField]
+
+        [FormerlySerializedAs("LevelData")] [BoxGroup("Level Data")] [SerializeField]
         public List<LevelData> levels = new List<LevelData>();
 
+        private LevelData _currentLevelData;
+        private LevelData _nextLevelData;
 
-        [HideInInspector]
-        public UnityEvent onLevelStart = new UnityEvent();
-        [HideInInspector]
-        public UnityEvent onLevelFinish = new UnityEvent();
+
+        [HideInInspector] public UnityEvent onLevelStart = new UnityEvent();
+        [HideInInspector] public UnityEvent onLevelFinish = new UnityEvent();
+
         public int LevelIndex
         {
             get
@@ -31,43 +33,40 @@ namespace _Picker3D_.Scripts.Managers
                 {
                     level = 0;
                 }
-                
+
                 return level;
             }
             set => PlayerPrefs.SetInt(PlayerPrefKeys.LastLevel, value);
-        }       
-        
-        public override void Awake()
+        }
+
+        public void Start()
         {
-            base.Awake();
-            for (var i = 0; i <= LevelIndex+1; i++)
+            for (var i = 0; i <= LevelIndex + 1; i++)
             {
-                for (var j = 0; j < levels[i].PartGroup.Count; j++)
+                foreach (var t in levels[i].partGroupCustomization.partGroup)
                 {
                     var currentPos = new Vector3(0, 0, _currentPlatformPos);
-                    Instantiate(levels[i].partPlatform.gameObject, currentPos, Quaternion.identity).transform.parent = transform;
+                    var part = Instantiate(levels[i].partPlatform.gameObject, currentPos, Quaternion.identity);
+                    part.transform.SetParent(transform, true);
+                    var partController = part.GetComponent<PartController>();
+                    partController.SetPartConfig(levels[i].groundColor, levels[i].borderColor, levels[i].containerColor,
+                        levels[i].containerGroundColor);
                     _currentPlatformPos += platformLength;
-                    SetPartObjects(levels[i], i);
-                    levels[i].partGroup[i].InstantiateObjects();
+                    levels[i].partGroupCustomization.InstantiateObjects();
+                    partController.container.requireObjectCount =
+                        t.ContainerSuccessSize;
                 }
-              
-              
-              
             }
-            
+
+            _currentLevelData = levels[LevelIndex];
+            _nextLevelData = levels[LevelIndex + 1];
+            playerController.SetColor(levels[LevelIndex].pickerColor);
         }
 
-        private void SetPartObjects(LevelData levelData, int levelIndex )
+
+        public Material GetLevelMaterial()
         {
-            for (var i = 0; i < levelData.PartGroup.Count; i++)
-            {
-                
-            }
+            return _currentLevelData.partPlatform.GetComponent<PartController>().partGround.material;
         }
-       
-
-       
-
     }
 }
-

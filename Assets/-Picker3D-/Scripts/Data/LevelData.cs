@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using _Picker3D_.Scripts.Controllers;
- using Sirenix.OdinInspector;
+using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
 
@@ -12,27 +12,22 @@ namespace _Picker3D_.Scripts.Data
     public class LevelData : ScriptableObject
     {
         [SerializeField] internal GameObject partPlatform;
-        [SerializeField] internal Color groundColor, borderColor, pickerColor, containerColor;
-        [SerializeField]
-        [SerializeReference]
-        [ListDrawerSettings(Expanded = true)]
-        internal List<PartCustomizations> partGroup = new List<PartCustomizations>() { new PartCustomizations(), new PartCustomizations(), new PartCustomizations() };
-        
-        public List<PartCustomizations> PartGroup => partGroup;
+        [SerializeField] internal Color groundColor, borderColor, pickerColor, containerColor, containerGroundColor;
+
+        [SerializeField] [SerializeReference] [ListDrawerSettings(Expanded = true)]
+        internal PartCustomizations partGroupCustomization;
+
+        public PartCustomizations PartGroupCustomization => partGroupCustomization;
 
         private void OnEnable()
         {
-            foreach (var partCustomizations in partGroup)
+            partGroupCustomization.ForwardStartPosLimit = 15;
+            foreach (var part in partGroupCustomization.partGroup)
             {
-                partCustomizations.ForwardStartPosLimit = 15;
-                foreach (var part in partCustomizations.PartGroup)
-                {
-                    part.levelData = this;
-                    part.OnLoad();
-                }
+                part.levelData = this;
+                part.OnLoad();
             }
         }
-        
     }
-    
 }
+

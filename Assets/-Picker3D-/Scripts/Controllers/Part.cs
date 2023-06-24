@@ -12,18 +12,25 @@ namespace _Picker3D_.Scripts
         [HideInInspector] public LevelData levelData;
         [HideInInspector] public string filePath;
         [HideInInspector] public string id;
-
+        [ShowInInspector] internal Collectable ObjectType;
+        [ShowInInspector] private int containerSuccessSize;
+        public int ContainerSuccessSize
+        {
+            get => containerSuccessSize;
+            set => containerSuccessSize = value;
+        }
         [TableMatrix(HorizontalTitle = "Custom Cell Drawing", DrawElementMethod = "DrawColoredEnumElement",
             ResizableColumns = true, RowHeight = 20)]
-        public bool[,] CustomCellDrawing = new bool[50, 16];
+        public bool[,] PartCellDrawing = new bool[50, 16];
+        
 
         [ShowInInspector, DoNotDrawAsReference]
         [TableMatrix(HorizontalTitle = "Transposed Custom Cell Drawing", DrawElementMethod = "DrawColoredEnumElement",
             ResizableColumns = false, RowHeight = 20, Transpose = true)]
         public bool[,] Transposed
         {
-            get => CustomCellDrawing;
-            set => CustomCellDrawing = value;
+            get => PartCellDrawing;
+            set => PartCellDrawing = value;
         }
 
         public Part()
@@ -65,35 +72,52 @@ namespace _Picker3D_.Scripts
             {
                 for (var j = 0; j < 16; j++)
                 {
-                    flatArray[i * 16 + j] = CustomCellDrawing[i, j];
+                    flatArray[i * 16 + j] = PartCellDrawing[i, j];
                 }
             }
 
-            var json = JsonUtility.ToJson(new SerializationHelper<bool> { data = flatArray });
+            var partData = new PartData
+            {
+                ObjectType = ObjectType,
+                ContainerSuccessSize = ContainerSuccessSize,
+                CellData = flatArray
+            };
+
+            var json = JsonUtility.ToJson(partData);
             File.Delete(path);
             File.WriteAllText(path, json);
+        
         }
 
         public void Load(string path)
         {
-            if (File.Exists(path))
+            if (!File.Exists(path)) return;
+
+            var json = File.ReadAllText(path);
+            var partData = JsonUtility.FromJson<PartData>(json);
+
+            ObjectType = partData.ObjectType;
+            ContainerSuccessSize = partData.ContainerSuccessSize;
+
+            var flatArray = partData.CellData;
+
+            for (var i = 0; i < 50; i++)
             {
-                var json = File.ReadAllText(path);
-
-                var flatArray = JsonUtility.FromJson<SerializationHelper<bool>>(json).data;
-
-                for (var i = 0; i < 50; i++)
+                for (var j = 0; j < 16; j++)
                 {
-                    for (var j = 0; j < 16; j++)
-                    {
-                        CustomCellDrawing[i, j] = flatArray[i * 16 + j];
-                    }
+                    PartCellDrawing[i, j] = flatArray[i * 16 + j];
                 }
             }
         }
 
 #endif
-
+        [System.Serializable]
+        internal class PartData
+        {
+            public Collectable ObjectType;
+            public int ContainerSuccessSize;
+            public bool[] CellData;
+        }
         private void Initialize()
         {
             filePath = Application.persistentDataPath + "/CustomCellDrawing_" + id + ".json";
@@ -105,4 +129,5 @@ namespace _Picker3D_.Scripts
     {
         public T[] data;
     }
+    
 }
