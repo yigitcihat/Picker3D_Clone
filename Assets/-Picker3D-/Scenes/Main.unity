@@ -411,7 +411,19 @@ MonoBehaviour:
     AllowGrow: 1
     AutoDestroy: 1
     clones: []
-  - SourcePrefab: {fileID: 5535015999122041418, guid: fd57bf0d475872a42a1cafaabcaa3b84,
+  - SourcePrefab: {fileID: 2842544055351731175, guid: c3493d97e1bc302409438e3a0b835923,
+      type: 3}
+    MinNumberOfObject: 0
+    AllowGrow: 1
+    AutoDestroy: 1
+    clones: []
+  - SourcePrefab: {fileID: 518250756201443178, guid: 25d169fcb9d0fd14e92720c688cca0f7,
+      type: 3}
+    MinNumberOfObject: 0
+    AllowGrow: 1
+    AutoDestroy: 1
+    clones: []
+  - SourcePrefab: {fileID: 8444473119026259579, guid: d3ce3321290a75740a29f466c65d0907,
       type: 3}
     MinNumberOfObject: 0
     AllowGrow: 1
@@ -1975,6 +1987,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 62570b41513aef742b0210fb6a1c24c2, type: 2}
   - {fileID: 11400000, guid: e92b439bcbfa173408caad548e09892c, type: 2}
   - {fileID: 11400000, guid: 62570b41513aef742b0210fb6a1c24c2, type: 2}
+  - {fileID: 11400000, guid: 62570b41513aef742b0210fb6a1c24c2, type: 2}
   onLevelStart:
     m_PersistentCalls:
       m_Calls: []
@@ -3320,6 +3333,12 @@ MonoBehaviour:
   onPanelHide:
     m_PersistentCalls:
       m_Calls: []
+  currentLevelText: {fileID: 2080239847}
+  nextLevelText: {fileID: 570528923}
+  progressImages:
+  - {fileID: 1206243671}
+  - {fileID: 906649168}
+  - {fileID: 1967337432}
 --- !u!225 &1237034768
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4720,8 +4739,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1842956485}
-        m_MethodName: HidePanel
+      - m_Target: {fileID: 414607425}
+        m_MethodName: Continue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

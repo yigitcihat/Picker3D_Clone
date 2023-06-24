@@ -76,10 +76,9 @@ GameObject:
   - component: {fileID: 6044470727810466385}
   - component: {fileID: 1685894446084437022}
   - component: {fileID: 6665913697079952500}
-  - component: {fileID: 8032250306355917822}
   m_Layer: 0
   m_Name: Trigger
-  m_TagString: Storage_Trigger
+  m_TagString: ContainerTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,20 +155,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8032250306355917822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2434232058889133517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4a5d26365596454a93a599c0eee95ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Size: {x: 1, y: 3.7100315, z: 1}
+  m_Center: {x: 0, y: 1.3550158, z: 0}
 --- !u!1 &3084392139544015565
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,8 +620,9 @@ MonoBehaviour:
   - {fileID: 1136181021164897848}
   - {fileID: 4265139265642861193}
   barrierFx: {fileID: 1657878074468921356}
-  _partController: {fileID: -4898539853118346954}
+  partController: {fileID: -4898539853118346954}
   requireObjectCount: 0
+  platformPartMaterial: {fileID: 1967200869810484919}
 --- !u!1 &3365772572344121212
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,7 +823,7 @@ GameObject:
   - component: {fileID: 3710538515744974985}
   m_Layer: 0
   m_Name: FinalLine
-  m_TagString: Untagged
+  m_TagString: FinalLine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -913,7 +901,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 10, y: 9.684339, z: 10}
-  m_Center: {x: 0, y: 3.9620824, z: 0}
+  m_Center: {x: 0, y: 3.9620824, z: 24.95}
 --- !u!1 &3838125779248779062
 GameObject:
   m_ObjectHideFlags: 0

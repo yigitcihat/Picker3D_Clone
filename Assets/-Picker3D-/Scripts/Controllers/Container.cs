@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using _Picker3D_.Scripts.Controllers;
 using _Picker3D_.Scripts.Data;
 using _Picker3D_.Scripts.Managers;
 using DG.Tweening;
@@ -15,13 +14,16 @@ namespace _Picker3D_.Scripts
 
         [SerializeField] private Transform containerPart;
         [SerializeField] private Transform[] barrierParts;
-        
+
         [SerializeField] private GameObject barrierFx;
-        [SerializeField]private PartController _partController;
+
+        [SerializeField] private PartController partController;
+
         // [SerializeField] private FXData _objectsParticleData;
         [SerializeField] internal int requireObjectCount;
 
         private List<Collectable> _objectsInContainer;
+
         private List<Collectable> ObjectsInContainer =>
             _objectsInContainer ?? (_objectsInContainer = new List<Collectable>());
 
@@ -32,10 +34,8 @@ namespace _Picker3D_.Scripts
             : _requireObjectCountText;
 
         private Material _containerPartMaterial;
-        
-        private Material PlatformPartMaterial => _containerPartMaterial == null
-            ? _containerPartMaterial = containerPart.GetComponent<MeshRenderer>().material
-            : _containerPartMaterial;
+
+        [SerializeField]private MeshRenderer platformPartMaterial;
 
         #endregion
 
@@ -94,14 +94,14 @@ namespace _Picker3D_.Scripts
                 yield return new WaitForSeconds(.05f);
                 var currentObject = t.gameObject;
                 // _objectsParticleData.myFxPool.GetObjFromPool(currentObject.transform.position);
-                Destroy(currentObject);
+                PoolingSystem.Instance.DestroyAPS(currentObject);
             }
 
             containerPart.DOLocalMoveY(1.77f, 1.5f).SetEase(Ease.InOutBack).OnComplete(() =>
             {
                 OpenBarrier();
-                var color = _partController.partGround.material.color;
-                PlatformPartMaterial.DOColor(color, 1f);
+                platformPartMaterial.material.DOColor(partController.partGround.material.color, 1f);
+                EventManager.OnPartSuccess.Invoke();
             });
         }
 

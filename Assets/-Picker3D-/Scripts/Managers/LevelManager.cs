@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using _Picker3D_.Scripts.Controllers;
 using _Picker3D_.Scripts.Data;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -24,7 +23,7 @@ namespace _Picker3D_.Scripts.Managers
         [HideInInspector] public UnityEvent onLevelStart = new UnityEvent();
         [HideInInspector] public UnityEvent onLevelFinish = new UnityEvent();
 
-        public int LevelIndex
+        public int Level
         {
             get
             {
@@ -41,33 +40,39 @@ namespace _Picker3D_.Scripts.Managers
 
         public void Start()
         {
-            for (var i = 0; i <= LevelIndex + 1; i++)
+            for (var i = 0; i <= Level + 1; i++)
             {
-                foreach (var t in levels[i].partGroupCustomization.partGroup)
+                LoadLevel(i);
+            }
+        }
+
+        public void LoadLevel(int level)
+        {
+            Debug.Log(levels[level].name);
+            for (var j = 0; j < levels[level].partGroupCustomization.partGroup.Count; j++)
+            {
+                var t = levels[level].partGroupCustomization.partGroup[j];
+                var currentPos = new Vector3(0, 0, _currentPlatformPos);
+                var part = Instantiate(levels[level].partPlatform.gameObject, currentPos, Quaternion.identity);
+                part.transform.SetParent(transform, true);
+                var partController = part.GetComponent<PartController>();
+                partController.SetPartConfig(levels[level].borderColor, levels[level].groundColor,
+                    levels[level].containerColor,
+                    levels[level].containerGroundColor);
+                _currentPlatformPos += platformLength;
+                levels[level].partGroupCustomization.InstantiateObjects();
+                partController.container.requireObjectCount =
+                    t.ContainerSuccessSize;
+                if (j + 1 == levels[level].partGroupCustomization.partGroup.Count)
                 {
-                    Debug.Log(levels[i].name);
-                    var currentPos = new Vector3(0, 0, _currentPlatformPos);
-                    var part = Instantiate(levels[i].partPlatform.gameObject, currentPos, Quaternion.identity);
-                    part.transform.SetParent(transform, true);
-                    var partController = part.GetComponent<PartController>();
-                    partController.SetPartConfig(levels[i].borderColor, levels[i].groundColor, levels[i].containerColor,
-                        levels[i].containerGroundColor);
-                    _currentPlatformPos += platformLength;
-                    levels[i].partGroupCustomization.InstantiateObjects();
-                    partController.container.requireObjectCount =
-                        t.ContainerSuccessSize;
+                    partController.finalLine.SetActive(true);
                 }
             }
 
-            _currentLevelData = levels[LevelIndex];
-            _nextLevelData = levels[LevelIndex + 1];
-            playerController.SetColor(levels[LevelIndex].pickerColor);
-        }
 
-
-        public Color GetLevelColor()
-        {
-            return _currentLevelData.partPlatform.GetComponent<PartController>().partGround.sharedMaterial.color;
+            _currentLevelData = levels[Level];
+            _nextLevelData = levels[Level + 1];
+            playerController.SetColor(levels[Level].pickerColor);
         }
     }
 }

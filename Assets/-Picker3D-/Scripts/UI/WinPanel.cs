@@ -10,5 +10,11 @@ namespace _Picker3D_.Scripts.UI
             GameManager.Instance.OnStageSuccess.AddListener(ShowPanel);
         }
 
+        public void Continue()
+        {
+            HidePanel();
+            PlayerController.Instance.SetWaitingState(PlayerStates.PlayerState.Moving);
+        }
+
     }
 }

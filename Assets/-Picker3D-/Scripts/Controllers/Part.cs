@@ -134,7 +134,9 @@ namespace _Picker3D_.Scripts
             Dice,
             Hamburger,
             Pokeball,
-            UnicornFloat
+            Fish,
+            Mushroom,
+            Block
         }
 
         [System.Serializable]

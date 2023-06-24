@@ -1,5 +1,4 @@
-﻿using _Picker3D_.Scripts.Controllers;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace _Picker3D_.Scripts.Managers
 {

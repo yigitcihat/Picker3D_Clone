@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections;
 using _Picker3D_.Scripts.Managers;
+using _Picker3D_.Scripts.Others;
 using UnityEngine;
 
-namespace _Picker3D_.Scripts.Controllers
+namespace _Picker3D_.Scripts
 {
     public class PlayerController : Singleton<PlayerController>
     {
@@ -17,13 +18,12 @@ namespace _Picker3D_.Scripts.Controllers
         [HideInInspector] public bool canMove;
         
         private const float SpeedMultiply =100;
-        private const float ForceMultiply =100;
+        private const float ForceMultiply =150;
         private float _initialSpeed;
         private Rigidbody _rigidBody;
         private Rigidbody Rigidbody => _rigidBody == null ? _rigidBody = GetComponent<Rigidbody>() : _rigidBody;
 
         private PlayerStates.PlayerState _myState;
-        // private float _initialSpeed;
         private float _firstDistanceFromFinish;
         #endregion
 
@@ -41,13 +41,24 @@ namespace _Picker3D_.Scripts.Controllers
         }
         private void OnTriggerEnter(Collider other)
         {
-            var containerTrigger = other.GetComponent<ContainerTrigger>();
-            if (containerTrigger == null) return;
-            SetWaitingState(PlayerStates.PlayerState.Waiting);
-            var container = other.GetComponentInParent<Container>();
-            canMove = CollectDetector.Instance.CheckHaveEnoughObjects(container.GetRequireObjectCount());
-            StartCoroutine(CheckPlayerState());
-            Destroy(other.gameObject);
+            if (other.CompareTag("FinalLine"))
+            {
+                LevelManager.Instance.Level++;
+                LevelManager.Instance.LoadLevel(LevelManager.Instance.Level);
+                GameManager.Instance.OnStageSuccess.Invoke();
+                other.gameObject.SetActive(false);
+                SetWaitingState(PlayerStates.PlayerState.Waiting);
+            }
+            else if (other.CompareTag("ContainerTrigger"))
+            {
+                SetWaitingState(PlayerStates.PlayerState.Waiting);
+                var container = other.GetComponentInParent<Container>();
+                canMove = CollectDetector.Instance.CheckHaveEnoughObjects(container.GetRequireObjectCount());
+                StartCoroutine(CheckPlayerState());
+                Destroy(other.gameObject);
+            }
+          
+            
         }
         #endregion
 
@@ -63,7 +74,7 @@ namespace _Picker3D_.Scripts.Controllers
         {
             var clampedValue = Mathf.Clamp(value, -forceLimit * ForceMultiply, forceLimit * ForceMultiply);
 
-            if ((transform.position.x <= -width && clampedValue < 0) || (transform.position.x >= width && clampedValue > 0))
+            if (((transform.position.x <= -width && clampedValue < 0) || (transform.position.x >= width && clampedValue > 0)) && canMove)
             {
                 clampedValue = 0f; 
             }

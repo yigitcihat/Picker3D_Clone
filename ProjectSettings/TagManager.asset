@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Storage_Trigger
   - FinalLine
+  - ContainerTrigger
   layers:
   - Default
   - TransparentFX
