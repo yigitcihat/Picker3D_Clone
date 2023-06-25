@@ -349,7 +349,7 @@ Shader "@%SHADER_NAME%@"
 	///
 		[Space]
 ///
-		_HColor ("Highlight Color", Color) = (0.785,0.785,0.785,1.0)
+		_HColor ("_HColor", Color) = (0.785,0.785,0.785,1.0)
 		_SColor ("Shadow Color", Color) = (0.195,0.195,0.195,1.0)
 /// IF SHADOW_COLOR_TEX
 		[NoScaleOffset] _STexture ("Shadow Color Texture", 2D) = "white" {}

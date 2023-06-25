@@ -65,7 +65,7 @@ internal class TCP2_MaterialInspector_PBS : ShaderGUI
 		public static readonly string[] blendNames = Enum.GetNames (typeof (BlendMode));
 
 		//public static string tcp2_HeaderText = "Toony Colors Pro 2 - Stylization";
-		public static string tcp2_highlightColorText = "Highlight Color";
+		public static string tcp2_highlightColorText = "_HColor";
 		public static string tcp2_shadowColorText = "Shadow Color";
 		public static GUIContent tcp2_rampText = new GUIContent("Ramp Texture", "Ramp 1D Texture (R)");
 		public static GUIContent tcp2_rampThresholdText = new GUIContent("Threshold", "Threshold for the separation between shadows and highlights");

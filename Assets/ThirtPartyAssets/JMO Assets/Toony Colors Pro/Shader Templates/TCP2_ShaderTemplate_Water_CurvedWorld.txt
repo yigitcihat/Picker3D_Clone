@@ -213,7 +213,7 @@ Shader "@%SHADER_NAME%@"
 ///
 	[TCP2HeaderHelp(BASE, Base Properties)]
 		//TOONY COLORS
-		_HColor ("Highlight Color", Color) = (0.6,0.6,0.6,1.0)
+		_HColor ("_HColor", Color) = (0.6,0.6,0.6,1.0)
 		_SColor ("Shadow Color", Color) = (0.3,0.3,0.3,1.0)
 /// IF COLOR_MULTIPLIERS
 		_HighlightMultiplier ("Highlight Multiplier", Range(0,4)) = 1

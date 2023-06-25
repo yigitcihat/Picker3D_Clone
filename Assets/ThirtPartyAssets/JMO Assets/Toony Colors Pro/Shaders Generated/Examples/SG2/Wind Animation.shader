@@ -8,7 +8,7 @@ Shader "Toony Colors Pro 2/Examples/SG2/Wind Animation"
 		[TCP2HeaderHelp(Base)]
 		_Color ("Color", Color) = (1,1,1,1)
 		 _ColorBack ("Color Backfaces", Color) = (1,1,1,1)
-		[TCP2ColorNoAlpha] _HColor ("Highlight Color", Color) = (0.75,0.75,0.75,1)
+		[TCP2ColorNoAlpha] _HColor ("_HColor", Color) = (0.75,0.75,0.75,1)
 		[TCP2ColorNoAlpha] _SColor ("Shadow Color", Color) = (0.2,0.2,0.2,1)
 		_MainTex ("Albedo", 2D) = "white" {}
 		_Cutoff ("Alpha Cutoff", Range(0,1)) = 0.5

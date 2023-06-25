@@ -6,6 +6,7 @@ TagManager:
   tags:
   - FinalLine
   - ContainerTrigger
+  - PlayerCollect
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - Picker
   - Ground
   - Border
-  - 
-  - 
+  - Throwed
+  - Collecteable
   - 
   - 
   - 

@@ -1045,7 +1045,7 @@ GameObject:
   - component: {fileID: 500526761}
   - component: {fileID: 500526760}
   m_Layer: 8
-  m_Name: Capsule
+  m_Name: Collector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1077,7 +1077,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d15b854297f46b54aa05bcb4042e0fa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushForce: 500
+  pushForce: 5000
+  _myObjects: []
 --- !u!64 &500526761
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5374,7 +5375,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1842956485}
-        m_MethodName: HidePanel
+        m_MethodName: RestartLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

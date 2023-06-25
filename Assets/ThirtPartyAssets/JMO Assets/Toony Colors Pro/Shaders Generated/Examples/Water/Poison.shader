@@ -8,7 +8,7 @@ Shader "Toony Colors Pro 2/Examples/Water/Poison"
 		[TCP2HelpBox(Warning,Make sure that the Camera renders the depth texture for this material to work properly.    You can use the script __TCP2_CameraDepth__ for this.)]
 	[TCP2HeaderHelp(BASE, Base Properties)]
 		//TOONY COLORS
-		_HColor ("Highlight Color", Color) = (0.6,0.6,0.6,1.0)
+		_HColor ("_HColor", Color) = (0.6,0.6,0.6,1.0)
 		_SColor ("Shadow Color", Color) = (0.3,0.3,0.3,1.0)
 
 		//DIFFUSE

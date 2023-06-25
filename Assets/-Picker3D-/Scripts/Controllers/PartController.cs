@@ -31,12 +31,17 @@ namespace _Picker3D_.Scripts
             Color containerGroundColor)
         {
             rightWall.material.color = partWallColor;
+            rightWall.material.SetColor("_HColor",Color.white);
             leftWall.material.color = partWallColor;
+            leftWall.material.SetColor("_HColor",Color.white);
             partGround.material.color = partGroundColor;
+            partGround.material.SetColor("_HColor",Color.white);
             containerGround.material.color = containerGroundColor;
+            containerGround.material.SetColor("_HColor",Color.white);
             foreach (var wall in containerWalls)
             {
                 wall.material.color = containerWallColor;
+                wall.material.SetColor("_HColor",Color.white);
             }
 
         } 
@@ -44,7 +49,6 @@ namespace _Picker3D_.Scripts
         {
             foreach (var fx in Success_Fx.GetComponentsInChildren<ParticleSystem>())
             {
-                Debug.Log("asdasd");
                 fx.Play();
             }
         }

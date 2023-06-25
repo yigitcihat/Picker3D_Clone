@@ -8,7 +8,7 @@ Shader "Toony Colors Pro 2/Examples/Cat Demo/Vertex Colors"
 	[TCP2HeaderHelp(BASE, Base Properties)]
 		//TOONY COLORS
 		_Color ("Color", Color) = (1,1,1,1)
-		_HColor ("Highlight Color", Color) = (0.785,0.785,0.785,1.0)
+		_HColor ("_HColor", Color) = (0.785,0.785,0.785,1.0)
 		_SColor ("Shadow Color", Color) = (0.195,0.195,0.195,1.0)
 
 		//DIFFUSE

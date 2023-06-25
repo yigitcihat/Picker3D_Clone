@@ -27,7 +27,7 @@ Shader "Toony Colors Pro 2/Examples/PBS/Sketch"
 		[HideInInspector] _ZWrite("__zw", Float) = 1.0
 
 		//TOONY COLORS PRO 2 ----------------------------------------------------------------
-		_HColor("Highlight Color", Color) = (0.785,0.785,0.785,1.0)
+		_HColor("_HColor", Color) = (0.785,0.785,0.785,1.0)
 		_SColor("Shadow Color", Color) = (0.195,0.195,0.195,1.0)
 
 	[Header(Ramp Shading)]

@@ -16,10 +16,6 @@ namespace _Picker3D_.Scripts.Managers
         [FormerlySerializedAs("LevelData")] [BoxGroup("Level Data")] [SerializeField]
         public List<LevelData> levels = new List<LevelData>();
 
-        private LevelData _currentLevelData;
-        private LevelData _nextLevelData;
-
-
         [HideInInspector] public UnityEvent onLevelStart = new UnityEvent();
         [HideInInspector] public UnityEvent onLevelFinish = new UnityEvent();
 
@@ -28,10 +24,6 @@ namespace _Picker3D_.Scripts.Managers
             get
             {
                 var level = PlayerPrefs.GetInt(PlayerPrefKeys.LastLevel, 0);
-                if (level > levels.Count - 1)
-                {
-                    level = 0;
-                }
 
                 return level;
             }
@@ -42,7 +34,15 @@ namespace _Picker3D_.Scripts.Managers
         {
             for (var i = Level; i <= Level + 1; i++)
             {
-                LoadLevel(i);
+                if (Level >= levels.Count)
+                {
+                    LoadRandomLevel();
+                }
+                else
+                {
+                    LoadLevel(Level);
+                }
+
             }
         }
 
@@ -59,7 +59,7 @@ namespace _Picker3D_.Scripts.Managers
                     levels[level].containerColor,
                     levels[level].containerGroundColor);
                 _currentPlatformPos += platformLength;
-                
+
                 partController.container.requireObjectCount =
                     t.ContainerSuccessSize;
                 if (j + 1 == levels[level].partGroupCustomization.partGroup.Count)
@@ -67,11 +67,40 @@ namespace _Picker3D_.Scripts.Managers
                     partController.finalLine.SetActive(true);
                 }
             }
+
             levels[level].partGroupCustomization.InstantiateObjects();
 
-            _currentLevelData = levels[Level];
-            _nextLevelData = levels[Level + 1];
             playerController.SetColor(levels[Level].pickerColor);
+        }
+
+        public void LoadRandomLevel()
+        {
+            int randomLevel = Random.Range(0, levels.Count);
+            for (var j = 0; j < levels[randomLevel].partGroupCustomization.partGroup.Count; j++)
+            {
+                var t = levels[randomLevel].partGroupCustomization.partGroup[j];
+                var currentPos = new Vector3(0, 0, _currentPlatformPos);
+                var part = Instantiate(levels[randomLevel].partPlatform.gameObject, currentPos,
+                    Quaternion.identity);
+                part.transform.SetParent(transform, true);
+                var partController = part.GetComponent<PartController>();
+                partController.SetPartConfig(levels[randomLevel].borderColor,
+                    levels[randomLevel].groundColor,
+                    levels[randomLevel].containerColor,
+                    levels[randomLevel].containerGroundColor);
+                _currentPlatformPos += platformLength;
+
+                partController.container.requireObjectCount =
+                    t.ContainerSuccessSize;
+                if (j + 1 == levels[randomLevel].partGroupCustomization.partGroup.Count)
+                {
+                    partController.finalLine.SetActive(true);
+                }
+            }
+
+            levels[Random.Range(0, levels.Count)].partGroupCustomization.InstantiateObjects();
+
+            playerController.SetColor(levels[Random.Range(0, levels.Count)].pickerColor);
         }
     }
 }

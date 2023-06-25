@@ -44,7 +44,7 @@ Shader "Hidden/Toony Colors Pro 2/Standard PBS Outline (Specular)"
 		[HideInInspector] _ZWrite("__zw", Float) = 1.0
 
 		//TOONY COLORS PRO 2 ----------------------------------------------------------------
-		_HColor("Highlight Color", Color) = (1.0, 1.0, 1.0, 1.0)
+		_HColor("_HColor", Color) = (1.0, 1.0, 1.0, 1.0)
 		_SColor("Shadow Color", Color) = (0.25, 0.25, 0.25, 1.0)
 			
 		[Toggle(TCP2_DISABLE_WRAPPED_LIGHT)] _TCP2_DISABLE_WRAPPED_LIGHT("Disable Wrapped Lighting", Float) = 1

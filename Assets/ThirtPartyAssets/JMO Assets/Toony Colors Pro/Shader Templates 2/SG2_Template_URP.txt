@@ -221,7 +221,7 @@ float		Cutoff				fragment, imp(range, label = "Alpha Cutoff", default = 0.5, min
 float		Ambient Intensity	lighting, imp(constant, label = "Ambient Intensity", default = 1)
 
 [[MODULE:PROPERTIES_NEW:Ramp Shading LWRP]]
-color		Highlight Color		lighting, imp(color, label = "Highlight Color", variable = "_HColor", default = (0.75,0.75,0.75,1))
+color		_HColor		lighting, imp(color, label = "_HColor", variable = "_HColor", default = (0.75,0.75,0.75,1))
 color		Shadow Color		lighting, imp(color, label = "Shadow Color", variable = "_SColor", default = (0.2,0.2,0.2,1))
 [[MODULE:PROPERTIES_NEW:ShadowHSV]]
 /// IF CLAMP_LIGHTS_INTENSITY || CLAMP_LIGHTS_INTENSITY_ADD
@@ -476,7 +476,7 @@ Shader "@%SHADER_NAME%@"
 		[[INJECTION_POINT:Properties/Start]]
 		[TCP2HeaderHelp(Base)]
 		[[PROP:Main Color]]
-		[[PROP:Highlight Color]]
+		[[PROP:_HColor]]
 		[[PROP:Shadow Color]]
 		[[MODULE:PROPERTIES_BLOCK:ShadowHSV]]
 /// IF !CUSTOM_ALBEDO
@@ -2019,9 +2019,9 @@ Shader "@%SHADER_NAME%@"
 				// highlight/shadow colors
 	/// IF SHADOW_COLOR_LERP
 				albedo = lerp([[VALUE:Shadow Color]], albedo, ramp);
-				ramp = lerp(half3(1,1,1), [[VALUE:Highlight Color]], ramp);
+				ramp = lerp(half3(1,1,1), [[VALUE:_HColor]], ramp);
 	/// ELSE
-				ramp = lerp([[VALUE:Shadow Color]], [[VALUE:Highlight Color]], ramp);
+				ramp = lerp([[VALUE:Shadow Color]], [[VALUE:_HColor]], ramp);
 	///
 	/// IF HOOK_RAMP
 				ramp = [[SAMPLE_VALUE_SHADER_PROPERTY:Shading Ramp]];
@@ -2113,9 +2113,9 @@ Shader "@%SHADER_NAME%@"
 	///
 
 	/// IF SHADOW_COLOR_MAIN_DIR
-					// apply highlight color
+					// apply _HColor
 		/// IF ENABLE_SHADOW_2ND_LIGHTS || ENABLE_SHADOW_2ND_LIGHTS_SAT
-					ramp = lerp([[VALUE:Shadow Color]], [[VALUE:Highlight Color]], ramp);
+					ramp = lerp([[VALUE:Shadow Color]], [[VALUE:_HColor]], ramp);
 			/// IF !ATTEN_AT_NDL
 				/// IF ENABLE_SHADOW_2ND_LIGHTS_SAT
 					ramp *= saturate(atten);
@@ -2124,7 +2124,7 @@ Shader "@%SHADER_NAME%@"
 				///
 			///
 		/// ELSE
-					ramp = lerp(half3(0,0,0), [[VALUE:Highlight Color]], ramp);
+					ramp = lerp(half3(0,0,0), [[VALUE:_HColor]], ramp);
 		///
 					[[MODULE:FRAGMENT:NdotL Stylization:AFTER_RAMP(ndl, ramp)]]
 #					[[MODULE:FRAGMENT:Sketch(ramp)]]
@@ -2168,7 +2168,7 @@ Shader "@%SHADER_NAME%@"
 				albedo = lerp([[VALUE:Shadow Color]], albedo, accumulatedRamp);
 	///
 				half3 shadowColor = (1 - accumulatedRamp.rgb) * [[VALUE:Shadow Color]];
-				accumulatedRamp = accumulatedColors.rgb * [[VALUE:Highlight Color]] + shadowColor;
+				accumulatedRamp = accumulatedColors.rgb * [[VALUE:_HColor]] + shadowColor;
 				color += albedo * accumulatedRamp;
 				[[MODULE:FRAGMENT:Sketch:APPLY(color.rgb)]]
 ///

@@ -932,7 +932,7 @@ half4 Fragment (Varyings input, half vFace : VFACE) : SV_Target
 					#endif
 				#endif
 
-				// Apply highlight color only
+				// Apply _HColor only
 				ramp = lerp(half3(0,0,0), _HColor.rgb, ramp);
 
 				// Output color
@@ -1370,7 +1370,7 @@ float4 fragment_outline (Varyings_Outline input) : SV_Target
 				// Apply attenuation (shadowmaps & point/spot lights attenuation)
 				ramp *= atten;
 
-				// Apply highlight color only
+				// Apply _HColor only
 				ramp = lerp(half3(0,0,0), _HColor.rgb, ramp);
 
 				// Apply ramp

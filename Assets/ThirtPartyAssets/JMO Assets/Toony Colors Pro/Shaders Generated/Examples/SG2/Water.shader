@@ -6,7 +6,7 @@ Shader "Toony Colors Pro 2/Examples/SG2/Water"
 	Properties
 	{
 		[TCP2HeaderHelp(Base)]
-		[TCP2ColorNoAlpha] _HColor ("Highlight Color", Color) = (0.75,0.75,0.75,1)
+		[TCP2ColorNoAlpha] _HColor ("_HColor", Color) = (0.75,0.75,0.75,1)
 		[TCP2ColorNoAlpha] _SColor ("Shadow Color", Color) = (0.2,0.2,0.2,1)
 		_MainTex ("Water Texture", 2D) = "white" {}
 		[TCP2Vector4FloatsDrawer(Speed,Amplitude,Frequency,Offset)] _MainTex_SinAnimParams ("Water Texture UV Sine Distortion Parameters", Float) = (1, 0.05, 1, 0)

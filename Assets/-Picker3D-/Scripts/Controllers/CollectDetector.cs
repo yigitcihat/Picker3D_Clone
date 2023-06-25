@@ -11,8 +11,8 @@ namespace _Picker3D_.Scripts
 
         [SerializeField] private float pushForce;
 
-        private List<Rigidbody> _myObjects;
-        private List<Rigidbody> MyObjects => _myObjects ?? (_myObjects = new List<Rigidbody>());
+        public List<Rigidbody> _myObjects;
+        public List<Rigidbody> MyObjects => _myObjects ?? (_myObjects = new List<Rigidbody>());
 
         private MeshCollider _meshCollider;
         private MeshCollider MeshCollider => _meshCollider == null ? _meshCollider = GetComponent<MeshCollider>() : _meshCollider;
@@ -46,9 +46,11 @@ namespace _Picker3D_.Scripts
         public void PushAllObjects()
         {
             MeshCollider.enabled = false;
-            foreach (var t in MyObjects)
+            for (var index = 0; index < MyObjects.Count; index++)
             {
-                t.gameObject.layer = 9;
+                var t = MyObjects[index];
+                Debug.Log("Push");
+                t.gameObject.layer = LayerMask.NameToLayer("Throwed");
                 t.AddForce(Vector3.forward * pushForce);
             }
         }

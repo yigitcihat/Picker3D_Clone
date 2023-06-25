@@ -32,10 +32,10 @@ MonoBehaviour:
           id: 165dc6cb-0604-4a13-99ae-2224c9d574a9
           ObjectType: 4
         - levelData: {fileID: 11400000}
-          filePath: C:/Users/user/AppData/LocalLow/DefaultCompany/Picker3D/CustomCellDrawing_14351cf2-14b5-4b22-9892-7bbffab15576.json
-          id: 14351cf2-14b5-4b22-9892-7bbffab15576
-          ObjectType: 0
-        - levelData: {fileID: 11400000}
           filePath: C:/Users/user/AppData/LocalLow/DefaultCompany/Picker3D/CustomCellDrawing_fd546e57-00c4-4742-a4c6-fb9691f84de8.json
           id: fd546e57-00c4-4742-a4c6-fb9691f84de8
           ObjectType: 0
+        - levelData: {fileID: 11400000}
+          filePath: C:/Users/user/AppData/LocalLow/DefaultCompany/Picker3D/CustomCellDrawing_14351cf2-14b5-4b22-9892-7bbffab15576.json
+          id: 14351cf2-14b5-4b22-9892-7bbffab15576
+          ObjectType: 5

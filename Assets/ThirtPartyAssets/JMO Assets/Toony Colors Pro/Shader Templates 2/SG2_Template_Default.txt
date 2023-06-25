@@ -228,7 +228,7 @@ float		Ambient Intensity	lighting, imp(constant, label = "Ambient Intensity", de
 
 [[MODULE:PROPERTIES_NEW:Ramp Shading]]
 
-color		Highlight Color		lighting, imp(color, label = "Highlight Color", variable = "_HColor", default = (0.75,0.75,0.75,1))
+color		_HColor		lighting, imp(color, label = "_HColor", variable = "_HColor", default = (0.75,0.75,0.75,1))
 color		Shadow Color		lighting, imp(color, label = "Shadow Color", variable = "_SColor", default = (0.2,0.2,0.2,1))
 [[MODULE:PROPERTIES_NEW:ShadowHSV]]
 
@@ -531,7 +531,7 @@ Shader "@%SHADER_NAME%@"
 		[[INJECTION_POINT:Properties/Start]]
 		[TCP2HeaderHelp(Base)]
 		[[PROP:Main Color]]
-		[[PROP:Highlight Color]]
+		[[PROP:_HColor]]
 		[[PROP:Shadow Color]]
 		[[MODULE:PROPERTIES_BLOCK:ShadowHSV]]
 /// IF !CUSTOM_ALBEDO
@@ -1960,12 +1960,12 @@ Shader "@%SHADER_NAME%@"
 			// Highlight/Shadow Colors
 /// IF SHADOW_COLOR_LERP
 			surface.Albedo = lerp([[VALUE:Shadow Color]], surface.Albedo, ramp);
-			ramp = lerp(half3(1,1,1), [[VALUE:Highlight Color]], ramp);
+			ramp = lerp(half3(1,1,1), [[VALUE:_HColor]], ramp);
 /// ELSE
 			#if !defined(UNITY_PASS_FORWARDBASE)
-				ramp = lerp(half3(0,0,0), [[VALUE:Highlight Color]], ramp);
+				ramp = lerp(half3(0,0,0), [[VALUE:_HColor]], ramp);
 			#else
-				ramp = lerp([[VALUE:Shadow Color]], [[VALUE:Highlight Color]], ramp);
+				ramp = lerp([[VALUE:Shadow Color]], [[VALUE:_HColor]], ramp);
 			#endif
 ///
 

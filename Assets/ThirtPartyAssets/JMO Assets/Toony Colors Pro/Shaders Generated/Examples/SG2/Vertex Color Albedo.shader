@@ -7,7 +7,7 @@ Shader "Toony Colors Pro 2/Examples/SG2/Vertex Color Albedo"
 	{
 		[TCP2HeaderHelp(Base)]
 		_Color ("Color", Color) = (1,1,1,1)
-		[TCP2ColorNoAlpha] _HColor ("Highlight Color", Color) = (0.75,0.75,0.75,1)
+		[TCP2ColorNoAlpha] _HColor ("_HColor", Color) = (0.75,0.75,0.75,1)
 		[TCP2ColorNoAlpha] _SColor ("Shadow Color", Color) = (0.2,0.2,0.2,1)
 		[TCP2Separator]
 

@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partPlatform: {fileID: 6797433268519842982, guid: 9969aa04e8266ed43a6defc788a872ed,
     type: 3}
-  groundColor: {r: 0, g: 0, b: 0, a: 0}
-  borderColor: {r: 0, g: 0, b: 0, a: 0}
-  pickerColor: {r: 0, g: 0, b: 0, a: 0}
-  containerColor: {r: 0, g: 0, b: 0, a: 0}
-  containerGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  groundColor: {r: 0.4575472, g: 1, b: 0.6404647, a: 1}
+  borderColor: {r: 1, g: 0.5600311, b: 0.45098042, a: 1}
+  pickerColor: {r: 0.5613208, g: 0.8420754, b: 1, a: 1}
+  containerColor: {r: 0.83760965, g: 0.4575472, b: 1, a: 1}
+  containerGroundColor: {r: 1, g: 0.4292453, b: 0.6520151, a: 1}
   partGroupCustomization:
     id: 0
   references:
@@ -27,15 +27,15 @@ MonoBehaviour:
       type: {class: PartCustomizations, ns: _Picker3D_.Scripts, asm: Assembly-CSharp}
       data:
         partGroup:
-        - levelData: {fileID: 0}
-          filePath: 
+        - levelData: {fileID: 11400000}
+          filePath: C:/Users/user/AppData/LocalLow/DefaultCompany/Picker3D/CustomCellDrawing_0cec92f4-5ca6-4d98-855b-e40df68a5516.json
           id: 0cec92f4-5ca6-4d98-855b-e40df68a5516
           ObjectType: 0
-        - levelData: {fileID: 0}
-          filePath: 
+        - levelData: {fileID: 11400000}
+          filePath: C:/Users/user/AppData/LocalLow/DefaultCompany/Picker3D/CustomCellDrawing_28fa1d58-948a-4123-9fdd-ab13b2e08d62.json
           id: 28fa1d58-948a-4123-9fdd-ab13b2e08d62
-          ObjectType: 0
-        - levelData: {fileID: 0}
-          filePath: 
+          ObjectType: 1
+        - levelData: {fileID: 11400000}
+          filePath: C:/Users/user/AppData/LocalLow/DefaultCompany/Picker3D/CustomCellDrawing_ed4e2c82-490e-4708-b617-ecc01f4ba5e9.json
           id: ed4e2c82-490e-4708-b617-ecc01f4ba5e9
-          ObjectType: 0
+          ObjectType: 2
