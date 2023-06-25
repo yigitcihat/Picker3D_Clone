@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using _Picker3D_.Scripts.Data;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 namespace _Picker3D_.Scripts.Managers
 {
@@ -30,6 +32,7 @@ namespace _Picker3D_.Scripts.Managers
             set => PlayerPrefs.SetInt(PlayerPrefKeys.LastLevel, value);
         }
 
+
         public void Start()
         {
             for (var i = Level; i <= Level + 1; i++)
@@ -42,7 +45,6 @@ namespace _Picker3D_.Scripts.Managers
                 {
                     LoadLevel(Level);
                 }
-
             }
         }
 
@@ -101,6 +103,29 @@ namespace _Picker3D_.Scripts.Managers
             levels[Random.Range(0, levels.Count)].partGroupCustomization.InstantiateObjects();
 
             playerController.SetColor(levels[Random.Range(0, levels.Count)].pickerColor);
+        }
+
+        public void RestartLevel()
+        {
+            GameManager.Instance.ForwardStartPosLimit = 15;
+            for (var i = transform.childCount - 1; i >= 0; i--)
+            {
+                var child = transform.GetChild(i);
+                Destroy(child.gameObject);
+            }
+            _currentPlatformPos = 0;
+            for (var i = Level; i <= Level + 1; i++)
+            {
+                if (Level >= levels.Count)
+                {
+                    LoadRandomLevel();
+                }
+                else
+                {
+                    LoadLevel(Level);
+                }
+            }
+            playerController.SetWaitingState(PlayerStates.PlayerState.Moving);
         }
     }
 }
