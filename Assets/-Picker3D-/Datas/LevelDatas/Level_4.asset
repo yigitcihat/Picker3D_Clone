@@ -28,14 +28,14 @@ MonoBehaviour:
       data:
         partGroup:
         - levelData: {fileID: 11400000}
-          filePath: C:/Users/user/AppData/LocalLow/DefaultCompany/Picker3D/CustomCellDrawing_6cf33998-1055-48cb-874a-4de277771ed4.json
+          filePath: C:/Users/user/Documents/GitHub/Picker3D_Clone/Assets/CustomCellDrawing_6cf33998-1055-48cb-874a-4de277771ed4.json
           id: 6cf33998-1055-48cb-874a-4de277771ed4
           ObjectType: 0
         - levelData: {fileID: 11400000}
-          filePath: C:/Users/user/AppData/LocalLow/DefaultCompany/Picker3D/CustomCellDrawing_731abc02-63f5-43f4-afb4-bff85ea3c1cc.json
+          filePath: C:/Users/user/Documents/GitHub/Picker3D_Clone/Assets/CustomCellDrawing_731abc02-63f5-43f4-afb4-bff85ea3c1cc.json
           id: 731abc02-63f5-43f4-afb4-bff85ea3c1cc
           ObjectType: 1
         - levelData: {fileID: 11400000}
-          filePath: C:/Users/user/AppData/LocalLow/DefaultCompany/Picker3D/CustomCellDrawing_0f80cda7-c36e-44bb-98e6-5ee54dfddc60.json
+          filePath: C:/Users/user/Documents/GitHub/Picker3D_Clone/Assets/CustomCellDrawing_0f80cda7-c36e-44bb-98e6-5ee54dfddc60.json
           id: 0f80cda7-c36e-44bb-98e6-5ee54dfddc60
           ObjectType: 2
