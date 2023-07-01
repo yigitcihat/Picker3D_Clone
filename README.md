@@ -1,2 +1,2 @@
 # Picker3D_Clone
-![alt text]([http://url/to/img.png](https://www.linkpicture.com/q/image_161.png)https://www.linkpicture.com/q/image_161.png)
+<img align='right' src='https://ibb.co/frQ6n8J' width='150"'>
