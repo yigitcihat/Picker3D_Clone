@@ -125,10 +125,9 @@ namespace _Picker3D_.Scripts
 
         private void Initialize()
         {
-            filePath = Application.persistentDataPath + "/CustomCellDrawing_" + id + ".json";
+            filePath = Application.dataPath + "/CustomCellDrawing_" + id + ".json";
         }
-
-
+        
         public enum CollectableTypes
         {
             Dice,
